@@ -1,124 +1,173 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela de Jogos</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela de Jogos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-            body{
-                height: 100vh; 
-                background: linear-gradient(45deg, #892be2,  rgba(0, 0, 0, 0.869));
-                color: #fff;
-                text-shadow: 10px 1px 28px black;
-            }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(45deg, #892be2, rgba(0, 0, 0, 0.869));
+      color: #fff;
+      text-shadow: 10px 1px 28px black;
+      font-family: Arial, sans-serif;
+    }
 
-            #div_img{
-                padding: 10px;
-            }
+    main {
+      flex: 1;
+    }
 
-            #div_conteudo{
-                justify-content: right;
+    #div_img {
+      padding: 10px;
+    }
 
-            }
+    #div_conteudo {
+      justify-content: right;
+    }
 
-            img{
-                width: 300px;
-                border-radius: 10px;
-            }
+    img {
+      width: 300px;
+      border-radius: 10px;
+    }
 
-            #div_parent, #div_pai{
-                align-items: self-start;
-                display: flex;
-            }
+    #div_parent, #div_pai {
+      align-items: self-start;
+      display: flex;
+    }
 
-            #div_sun{
-                padding-right: 20px;
-                border: 0.1px solid black;
-                margin: 20px;
-                
-            }
+    #div_sun {
+      padding-right: 20px;
+      border: 0.1px solid black;
+      margin: 20px;
+    }
 
-            #txt_tabelas, #txt_lista {
-                white-space: pre-line;
-                width: 300px;
-                padding: 5px;
-            }
+    #txt_tabelas, #txt_lista {
+      white-space: pre-line;
+      width: 300px;
+      padding: 5px;
+    }
 
-            h3{
-                padding-left: 10px;
-            }
+    h3 {
+      padding-left: 10px;
+    }
 
-            input[type="button"], input[type="submit"]{
-                border-radius: 6px;
-            }
-            input[type="button"], input[type="submit"]{
-                border-radius: 6px;
-            }
+    input[type="button"], input[type="submit"] {
+      border-radius: 6px;
+    }
 
-            #idBtnRemove{
-                background-color: rgb(225, 66, 66);
-                border-radius: 10px;
-                margin-left: 40px;
-                cursor: pointer;
-                
-            }
+    #idBtnRemove {
+      background-color: rgb(225, 66, 66);
+      border-radius: 10px;
+      margin-left: 40px;
+      cursor: pointer;
+    }
 
-            #idBtnRemove:hover{
-                background-color: red;
-            }
+    #idBtnRemove:hover {
+      background-color: red;
+    }
 
-    </style>
+    footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      width: 100%;
+    }
 
+    @media (max-width: 640px) {
+      body {
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      #div_pai {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #div_img img {
+        width: 200px;
+        max-width: 250px;
+      }
+
+      #div_conteudo {
+        justify-content: center;
+        width: 100%;
+      }
+
+      #div_parent {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      #div_sun {
+        width: 90%;
+        margin: 10px 0;
+        padding: 10px;
+      }
+
+      input[type="text"], input[type="submit"], input[type="button"] {
+        width: 90%;
+        margin: 5px 0;
+      }
+
+      #idBtnRemove {
+        margin-left: 10px;
+        width: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div id="div_pai">
-    <div id="div_img">
+  <main>
+    <div id="div_pai">
+      <div id="div_img">
         <img src="./istockphoto-2163740085-612x612.jpg" alt="imagem_vertical">
-    </div>
-    
-    <div id="div_conteudo">
-        
-    <h1>Minha Tabela de Jogos</h1>
-                <form action="">
-                <p>Clubes / Nomes: 
-                    
-                    <input type="text" id="inpt_add_times" placeholder="Digite">
-                    <input type="submit" value="Adicionar" id="btn_add"><br>
-                </p>
-            </form>
-                
-                <p id="divisao"></p>
+      </div>
 
-                    <input type="button" value="Listar Clubes" id="btn_lista_times">
-                
-                    <input type="button" value="Montar tabela de Jogos" id="btn_montar_tab">
-            
-                <!-- <script>
-                    var divisao = document.getElementById("divisao")
-                    divisao.innerText = "-".repeat(40)
-                </script> -->
-            
+      <div id="div_conteudo">
+        <h1>Minha Tabela de Jogos</h1>
+        <form action="">
+          <p>Clubes / Nomes:
+            <input type="text" id="inpt_add_times" placeholder="Digite">
+            <input type="submit" value="Adicionar" id="btn_add"><br>
+          </p>
+        </form>
 
-                </p>
+        <p id="divisao"></p>
 
+        <input type="button" value="Listar Clubes" id="btn_lista_times">
+        <input type="button" value="Montar tabela de Jogos" id="btn_montar_tab">
 
         <div id="div_parent">
-                <div id="div_sun"> 
-                    <h3>Lista Clubes:</h3>   
-                        <p id="txt_lista"> </p>
-                </div>
-                
-                <div id="div_sun">
-                    <h3>Tabela de Jogos:</h3>
-                        <p id="txt_tabelas"> </p>
-                </div>
+          <div id="div_sun">
+            <h3>Lista Clubes:</h3>
+            <p id="txt_lista"></p>
+          </div>
+
+          <div id="div_sun">
+            <h3>Tabela de Jogos:</h3>
+            <p id="txt_tabelas"></p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-    <script src="./script.js">
+  </main>
 
-    </script>
+  <footer>
+    <p>Criado por EmersonJR-Dev</p>
+  </footer>
 
+  <script src="./script.js"></script>
 </body>
 </html>
